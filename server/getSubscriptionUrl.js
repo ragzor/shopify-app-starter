@@ -4,7 +4,7 @@ const getSubscriptionUrl = async (ctx, accessToken, shop) => {
       appSubscriptionCreate(
           name: "Super Duper Plan"
           returnUrl: "${process.env.HOST}"
-          test: true
+          test: ${process.env.NODE_ENV !== "production"}
           lineItems: [
           {
             plan: {
@@ -35,18 +35,22 @@ const getSubscriptionUrl = async (ctx, accessToken, shop) => {
     }`
   });
 
-  const response = await fetch(`https://${shop}/admin/api/2019-07/graphql.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      "X-Shopify-Access-Token": accessToken,
-    },
-    body: query
-  })
+  const response = await fetch(
+    `https://${shop}/admin/api/2019-07/graphql.json`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": accessToken
+      },
+      body: query
+    }
+  );
 
   const responseJson = await response.json();
-  const confirmationUrl = responseJson.data.appSubscriptionCreate.confirmationUrl
-  return ctx.redirect(confirmationUrl)
+  const confirmationUrl =
+    responseJson.data.appSubscriptionCreate.confirmationUrl;
+  return ctx.redirect(confirmationUrl);
 };
 
 module.exports = getSubscriptionUrl;
