@@ -9,6 +9,8 @@ If you plan to use this completed app, then make sure that you first complete th
 
 1. [Install the latest stable version of Node.js.](https://developers.shopify.com/tutorials/build-a-shopify-app-with-node-and-react/set-up-your-app#install-the-latest-stable-version)
 2. Install npm packages (run: npm install).
+2.1 Install vscode and eslint plugin
+2.2 set format on save to true, and select eslint as default formatter in vscode
 3. [Expose your dev environment.](https://developers.shopify.com/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#expose-your-dev-environment)
 4. [Get a Shopify API key and Shopify API secret key.](https://developers.shopify.com/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#get-a-shopify-api-key)
 5. [Add the Shopify API key and Shopify API secret key.](https://developers.shopify.com/tutorials/build-a-shopify-app-with-node-and-react/embed-your-app-in-shopify#add-the-shopify-api-key)
